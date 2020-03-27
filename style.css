@@ -1,0 +1,1216 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  --white: #fff;
+  --yellow: #FFD464;
+  --darkblue: #005693;
+  --navyblue: #170E2B;
+  --blue: #009CAB;
+  --red: #E64626;
+  --tan: #BBC69B;
+  --orange: #F28801;
+  background: var(--darkblue);
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+body.loaded {
+  background: var(--tan);
+}
+body.loaded #map svg path {
+  opacity: 1;
+}
+body.loaded h1 {
+  top: 0;
+  color: var(--white);
+}
+body.loaded h1:last-of-type {
+  top: calc(100% - 12vmin);
+}
+body.loaded #map {
+  opacity: 1;
+  pointer-events: all;
+}
+body h1 {
+  position: absolute;
+  font-family: 'Oswald';
+  font-weight: 800;
+  width: 100vw;
+  text-align: center;
+  z-index: 0;
+  text-transform: uppercase;
+  color: var(--tan);
+  font-size: 10vmin;
+  margin: 0;
+  line-height: 1.15;
+  -webkit-text-stroke: 3px var(--navyblue);
+  top: calc(50% - 10vmin);
+  -webkit-transition: 0.7s ease-in-out;
+  transition: 0.7s ease-in-out;
+}
+body h1:nth-of-type(2) {
+  top: 50%;
+}
+body #map {
+  width: 200vw;
+  max-width: 3000px;
+  height: 75vmin;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+  opacity: 0;
+  pointer-events: none;
+  cursor: move;
+  z-index: 9;
+  overflow: hidden;
+  position: relative;
+  background: radial-gradient(circle at center, var(--navyblue) 1.5px, transparent 1px, transparent 10px), var(--blue);
+  background-size: 10px 10px;
+  box-shadow: 0 -3px 0 0 var(--navyblue), 0 3px 0 0 var(--navyblue);
+}
+body #map:before {
+  content: 'API/data via Javier Aviles: github.com/javieraviles/covidAPI';
+  position: absolute;
+  z-index: 999;
+  pointer-events: none;
+  font-family: 'Oswald';
+  color: var(--navyblue);
+  background: #fff;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  font-weight: 300;
+  font-size: 13px;
+}
+body #map svg {
+  width: 200vw;
+  max-width: 3000px;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: move;
+  left: -50vw;
+  top: -12.5vh;
+}
+@media (min-width: 1500px) {
+  body #map svg {
+    margin-top: -20vh;
+  }
+}
+@media (min-width: 2500px) {
+  body #map svg {
+    margin-left: 750px;
+    top: 0vh;
+  }
+}
+body #map svg path {
+  fill: var(--yellow);
+  stroke: var(--navyblue);
+  stroke-width: 2px;
+  -webkit-transition: fill 0.3s ease-in-out, opacity 0.1s ease-in-out;
+  transition: fill 0.3s ease-in-out, opacity 0.1s ease-in-out;
+  z-index: 0;
+  position: relative;
+  cursor: move;
+  opacity: 0;
+}
+body #map svg path:nth-of-type(1) {
+  -webkit-transition-delay: 0s, 0.7533333333s;
+          transition-delay: 0s, 0.7533333333s;
+}
+body #map svg path:nth-of-type(2) {
+  -webkit-transition-delay: 0s, 0.7566666667s;
+          transition-delay: 0s, 0.7566666667s;
+}
+body #map svg path:nth-of-type(3) {
+  -webkit-transition-delay: 0s, 0.76s;
+          transition-delay: 0s, 0.76s;
+}
+body #map svg path:nth-of-type(4) {
+  -webkit-transition-delay: 0s, 0.7633333333s;
+          transition-delay: 0s, 0.7633333333s;
+}
+body #map svg path:nth-of-type(5) {
+  -webkit-transition-delay: 0s, 0.7666666667s;
+          transition-delay: 0s, 0.7666666667s;
+}
+body #map svg path:nth-of-type(6) {
+  -webkit-transition-delay: 0s, 0.77s;
+          transition-delay: 0s, 0.77s;
+}
+body #map svg path:nth-of-type(7) {
+  -webkit-transition-delay: 0s, 0.7733333333s;
+          transition-delay: 0s, 0.7733333333s;
+}
+body #map svg path:nth-of-type(8) {
+  -webkit-transition-delay: 0s, 0.7766666667s;
+          transition-delay: 0s, 0.7766666667s;
+}
+body #map svg path:nth-of-type(9) {
+  -webkit-transition-delay: 0s, 0.78s;
+          transition-delay: 0s, 0.78s;
+}
+body #map svg path:nth-of-type(10) {
+  -webkit-transition-delay: 0s, 0.7833333333s;
+          transition-delay: 0s, 0.7833333333s;
+}
+body #map svg path:nth-of-type(11) {
+  -webkit-transition-delay: 0s, 0.7866666667s;
+          transition-delay: 0s, 0.7866666667s;
+}
+body #map svg path:nth-of-type(12) {
+  -webkit-transition-delay: 0s, 0.79s;
+          transition-delay: 0s, 0.79s;
+}
+body #map svg path:nth-of-type(13) {
+  -webkit-transition-delay: 0s, 0.7933333333s;
+          transition-delay: 0s, 0.7933333333s;
+}
+body #map svg path:nth-of-type(14) {
+  -webkit-transition-delay: 0s, 0.7966666667s;
+          transition-delay: 0s, 0.7966666667s;
+}
+body #map svg path:nth-of-type(15) {
+  -webkit-transition-delay: 0s, 0.8s;
+          transition-delay: 0s, 0.8s;
+}
+body #map svg path:nth-of-type(16) {
+  -webkit-transition-delay: 0s, 0.8033333333s;
+          transition-delay: 0s, 0.8033333333s;
+}
+body #map svg path:nth-of-type(17) {
+  -webkit-transition-delay: 0s, 0.8066666667s;
+          transition-delay: 0s, 0.8066666667s;
+}
+body #map svg path:nth-of-type(18) {
+  -webkit-transition-delay: 0s, 0.81s;
+          transition-delay: 0s, 0.81s;
+}
+body #map svg path:nth-of-type(19) {
+  -webkit-transition-delay: 0s, 0.8133333333s;
+          transition-delay: 0s, 0.8133333333s;
+}
+body #map svg path:nth-of-type(20) {
+  -webkit-transition-delay: 0s, 0.8166666667s;
+          transition-delay: 0s, 0.8166666667s;
+}
+body #map svg path:nth-of-type(21) {
+  -webkit-transition-delay: 0s, 0.82s;
+          transition-delay: 0s, 0.82s;
+}
+body #map svg path:nth-of-type(22) {
+  -webkit-transition-delay: 0s, 0.8233333333s;
+          transition-delay: 0s, 0.8233333333s;
+}
+body #map svg path:nth-of-type(23) {
+  -webkit-transition-delay: 0s, 0.8266666667s;
+          transition-delay: 0s, 0.8266666667s;
+}
+body #map svg path:nth-of-type(24) {
+  -webkit-transition-delay: 0s, 0.83s;
+          transition-delay: 0s, 0.83s;
+}
+body #map svg path:nth-of-type(25) {
+  -webkit-transition-delay: 0s, 0.8333333333s;
+          transition-delay: 0s, 0.8333333333s;
+}
+body #map svg path:nth-of-type(26) {
+  -webkit-transition-delay: 0s, 0.8366666667s;
+          transition-delay: 0s, 0.8366666667s;
+}
+body #map svg path:nth-of-type(27) {
+  -webkit-transition-delay: 0s, 0.84s;
+          transition-delay: 0s, 0.84s;
+}
+body #map svg path:nth-of-type(28) {
+  -webkit-transition-delay: 0s, 0.8433333333s;
+          transition-delay: 0s, 0.8433333333s;
+}
+body #map svg path:nth-of-type(29) {
+  -webkit-transition-delay: 0s, 0.8466666667s;
+          transition-delay: 0s, 0.8466666667s;
+}
+body #map svg path:nth-of-type(30) {
+  -webkit-transition-delay: 0s, 0.85s;
+          transition-delay: 0s, 0.85s;
+}
+body #map svg path:nth-of-type(31) {
+  -webkit-transition-delay: 0s, 0.8533333333s;
+          transition-delay: 0s, 0.8533333333s;
+}
+body #map svg path:nth-of-type(32) {
+  -webkit-transition-delay: 0s, 0.8566666667s;
+          transition-delay: 0s, 0.8566666667s;
+}
+body #map svg path:nth-of-type(33) {
+  -webkit-transition-delay: 0s, 0.86s;
+          transition-delay: 0s, 0.86s;
+}
+body #map svg path:nth-of-type(34) {
+  -webkit-transition-delay: 0s, 0.8633333333s;
+          transition-delay: 0s, 0.8633333333s;
+}
+body #map svg path:nth-of-type(35) {
+  -webkit-transition-delay: 0s, 0.8666666667s;
+          transition-delay: 0s, 0.8666666667s;
+}
+body #map svg path:nth-of-type(36) {
+  -webkit-transition-delay: 0s, 0.87s;
+          transition-delay: 0s, 0.87s;
+}
+body #map svg path:nth-of-type(37) {
+  -webkit-transition-delay: 0s, 0.8733333333s;
+          transition-delay: 0s, 0.8733333333s;
+}
+body #map svg path:nth-of-type(38) {
+  -webkit-transition-delay: 0s, 0.8766666667s;
+          transition-delay: 0s, 0.8766666667s;
+}
+body #map svg path:nth-of-type(39) {
+  -webkit-transition-delay: 0s, 0.88s;
+          transition-delay: 0s, 0.88s;
+}
+body #map svg path:nth-of-type(40) {
+  -webkit-transition-delay: 0s, 0.8833333333s;
+          transition-delay: 0s, 0.8833333333s;
+}
+body #map svg path:nth-of-type(41) {
+  -webkit-transition-delay: 0s, 0.8866666667s;
+          transition-delay: 0s, 0.8866666667s;
+}
+body #map svg path:nth-of-type(42) {
+  -webkit-transition-delay: 0s, 0.89s;
+          transition-delay: 0s, 0.89s;
+}
+body #map svg path:nth-of-type(43) {
+  -webkit-transition-delay: 0s, 0.8933333333s;
+          transition-delay: 0s, 0.8933333333s;
+}
+body #map svg path:nth-of-type(44) {
+  -webkit-transition-delay: 0s, 0.8966666667s;
+          transition-delay: 0s, 0.8966666667s;
+}
+body #map svg path:nth-of-type(45) {
+  -webkit-transition-delay: 0s, 0.9s;
+          transition-delay: 0s, 0.9s;
+}
+body #map svg path:nth-of-type(46) {
+  -webkit-transition-delay: 0s, 0.9033333333s;
+          transition-delay: 0s, 0.9033333333s;
+}
+body #map svg path:nth-of-type(47) {
+  -webkit-transition-delay: 0s, 0.9066666667s;
+          transition-delay: 0s, 0.9066666667s;
+}
+body #map svg path:nth-of-type(48) {
+  -webkit-transition-delay: 0s, 0.91s;
+          transition-delay: 0s, 0.91s;
+}
+body #map svg path:nth-of-type(49) {
+  -webkit-transition-delay: 0s, 0.9133333333s;
+          transition-delay: 0s, 0.9133333333s;
+}
+body #map svg path:nth-of-type(50) {
+  -webkit-transition-delay: 0s, 0.9166666667s;
+          transition-delay: 0s, 0.9166666667s;
+}
+body #map svg path:nth-of-type(51) {
+  -webkit-transition-delay: 0s, 0.92s;
+          transition-delay: 0s, 0.92s;
+}
+body #map svg path:nth-of-type(52) {
+  -webkit-transition-delay: 0s, 0.9233333333s;
+          transition-delay: 0s, 0.9233333333s;
+}
+body #map svg path:nth-of-type(53) {
+  -webkit-transition-delay: 0s, 0.9266666667s;
+          transition-delay: 0s, 0.9266666667s;
+}
+body #map svg path:nth-of-type(54) {
+  -webkit-transition-delay: 0s, 0.93s;
+          transition-delay: 0s, 0.93s;
+}
+body #map svg path:nth-of-type(55) {
+  -webkit-transition-delay: 0s, 0.9333333333s;
+          transition-delay: 0s, 0.9333333333s;
+}
+body #map svg path:nth-of-type(56) {
+  -webkit-transition-delay: 0s, 0.9366666667s;
+          transition-delay: 0s, 0.9366666667s;
+}
+body #map svg path:nth-of-type(57) {
+  -webkit-transition-delay: 0s, 0.94s;
+          transition-delay: 0s, 0.94s;
+}
+body #map svg path:nth-of-type(58) {
+  -webkit-transition-delay: 0s, 0.9433333333s;
+          transition-delay: 0s, 0.9433333333s;
+}
+body #map svg path:nth-of-type(59) {
+  -webkit-transition-delay: 0s, 0.9466666667s;
+          transition-delay: 0s, 0.9466666667s;
+}
+body #map svg path:nth-of-type(60) {
+  -webkit-transition-delay: 0s, 0.95s;
+          transition-delay: 0s, 0.95s;
+}
+body #map svg path:nth-of-type(61) {
+  -webkit-transition-delay: 0s, 0.9533333333s;
+          transition-delay: 0s, 0.9533333333s;
+}
+body #map svg path:nth-of-type(62) {
+  -webkit-transition-delay: 0s, 0.9566666667s;
+          transition-delay: 0s, 0.9566666667s;
+}
+body #map svg path:nth-of-type(63) {
+  -webkit-transition-delay: 0s, 0.96s;
+          transition-delay: 0s, 0.96s;
+}
+body #map svg path:nth-of-type(64) {
+  -webkit-transition-delay: 0s, 0.9633333333s;
+          transition-delay: 0s, 0.9633333333s;
+}
+body #map svg path:nth-of-type(65) {
+  -webkit-transition-delay: 0s, 0.9666666667s;
+          transition-delay: 0s, 0.9666666667s;
+}
+body #map svg path:nth-of-type(66) {
+  -webkit-transition-delay: 0s, 0.97s;
+          transition-delay: 0s, 0.97s;
+}
+body #map svg path:nth-of-type(67) {
+  -webkit-transition-delay: 0s, 0.9733333333s;
+          transition-delay: 0s, 0.9733333333s;
+}
+body #map svg path:nth-of-type(68) {
+  -webkit-transition-delay: 0s, 0.9766666667s;
+          transition-delay: 0s, 0.9766666667s;
+}
+body #map svg path:nth-of-type(69) {
+  -webkit-transition-delay: 0s, 0.98s;
+          transition-delay: 0s, 0.98s;
+}
+body #map svg path:nth-of-type(70) {
+  -webkit-transition-delay: 0s, 0.9833333333s;
+          transition-delay: 0s, 0.9833333333s;
+}
+body #map svg path:nth-of-type(71) {
+  -webkit-transition-delay: 0s, 0.9866666667s;
+          transition-delay: 0s, 0.9866666667s;
+}
+body #map svg path:nth-of-type(72) {
+  -webkit-transition-delay: 0s, 0.99s;
+          transition-delay: 0s, 0.99s;
+}
+body #map svg path:nth-of-type(73) {
+  -webkit-transition-delay: 0s, 0.9933333333s;
+          transition-delay: 0s, 0.9933333333s;
+}
+body #map svg path:nth-of-type(74) {
+  -webkit-transition-delay: 0s, 0.9966666667s;
+          transition-delay: 0s, 0.9966666667s;
+}
+body #map svg path:nth-of-type(75) {
+  -webkit-transition-delay: 0s, 1s;
+          transition-delay: 0s, 1s;
+}
+body #map svg path:nth-of-type(76) {
+  -webkit-transition-delay: 0s, 1.0033333333s;
+          transition-delay: 0s, 1.0033333333s;
+}
+body #map svg path:nth-of-type(77) {
+  -webkit-transition-delay: 0s, 1.0066666667s;
+          transition-delay: 0s, 1.0066666667s;
+}
+body #map svg path:nth-of-type(78) {
+  -webkit-transition-delay: 0s, 1.01s;
+          transition-delay: 0s, 1.01s;
+}
+body #map svg path:nth-of-type(79) {
+  -webkit-transition-delay: 0s, 1.0133333333s;
+          transition-delay: 0s, 1.0133333333s;
+}
+body #map svg path:nth-of-type(80) {
+  -webkit-transition-delay: 0s, 1.0166666667s;
+          transition-delay: 0s, 1.0166666667s;
+}
+body #map svg path:nth-of-type(81) {
+  -webkit-transition-delay: 0s, 1.02s;
+          transition-delay: 0s, 1.02s;
+}
+body #map svg path:nth-of-type(82) {
+  -webkit-transition-delay: 0s, 1.0233333333s;
+          transition-delay: 0s, 1.0233333333s;
+}
+body #map svg path:nth-of-type(83) {
+  -webkit-transition-delay: 0s, 1.0266666667s;
+          transition-delay: 0s, 1.0266666667s;
+}
+body #map svg path:nth-of-type(84) {
+  -webkit-transition-delay: 0s, 1.03s;
+          transition-delay: 0s, 1.03s;
+}
+body #map svg path:nth-of-type(85) {
+  -webkit-transition-delay: 0s, 1.0333333333s;
+          transition-delay: 0s, 1.0333333333s;
+}
+body #map svg path:nth-of-type(86) {
+  -webkit-transition-delay: 0s, 1.0366666667s;
+          transition-delay: 0s, 1.0366666667s;
+}
+body #map svg path:nth-of-type(87) {
+  -webkit-transition-delay: 0s, 1.04s;
+          transition-delay: 0s, 1.04s;
+}
+body #map svg path:nth-of-type(88) {
+  -webkit-transition-delay: 0s, 1.0433333333s;
+          transition-delay: 0s, 1.0433333333s;
+}
+body #map svg path:nth-of-type(89) {
+  -webkit-transition-delay: 0s, 1.0466666667s;
+          transition-delay: 0s, 1.0466666667s;
+}
+body #map svg path:nth-of-type(90) {
+  -webkit-transition-delay: 0s, 1.05s;
+          transition-delay: 0s, 1.05s;
+}
+body #map svg path:nth-of-type(91) {
+  -webkit-transition-delay: 0s, 1.0533333333s;
+          transition-delay: 0s, 1.0533333333s;
+}
+body #map svg path:nth-of-type(92) {
+  -webkit-transition-delay: 0s, 1.0566666667s;
+          transition-delay: 0s, 1.0566666667s;
+}
+body #map svg path:nth-of-type(93) {
+  -webkit-transition-delay: 0s, 1.06s;
+          transition-delay: 0s, 1.06s;
+}
+body #map svg path:nth-of-type(94) {
+  -webkit-transition-delay: 0s, 1.0633333333s;
+          transition-delay: 0s, 1.0633333333s;
+}
+body #map svg path:nth-of-type(95) {
+  -webkit-transition-delay: 0s, 1.0666666667s;
+          transition-delay: 0s, 1.0666666667s;
+}
+body #map svg path:nth-of-type(96) {
+  -webkit-transition-delay: 0s, 1.07s;
+          transition-delay: 0s, 1.07s;
+}
+body #map svg path:nth-of-type(97) {
+  -webkit-transition-delay: 0s, 1.0733333333s;
+          transition-delay: 0s, 1.0733333333s;
+}
+body #map svg path:nth-of-type(98) {
+  -webkit-transition-delay: 0s, 1.0766666667s;
+          transition-delay: 0s, 1.0766666667s;
+}
+body #map svg path:nth-of-type(99) {
+  -webkit-transition-delay: 0s, 1.08s;
+          transition-delay: 0s, 1.08s;
+}
+body #map svg path:nth-of-type(100) {
+  -webkit-transition-delay: 0s, 1.0833333333s;
+          transition-delay: 0s, 1.0833333333s;
+}
+body #map svg path:nth-of-type(101) {
+  -webkit-transition-delay: 0s, 1.0866666667s;
+          transition-delay: 0s, 1.0866666667s;
+}
+body #map svg path:nth-of-type(102) {
+  -webkit-transition-delay: 0s, 1.09s;
+          transition-delay: 0s, 1.09s;
+}
+body #map svg path:nth-of-type(103) {
+  -webkit-transition-delay: 0s, 1.0933333333s;
+          transition-delay: 0s, 1.0933333333s;
+}
+body #map svg path:nth-of-type(104) {
+  -webkit-transition-delay: 0s, 1.0966666667s;
+          transition-delay: 0s, 1.0966666667s;
+}
+body #map svg path:nth-of-type(105) {
+  -webkit-transition-delay: 0s, 1.1s;
+          transition-delay: 0s, 1.1s;
+}
+body #map svg path:nth-of-type(106) {
+  -webkit-transition-delay: 0s, 1.1033333333s;
+          transition-delay: 0s, 1.1033333333s;
+}
+body #map svg path:nth-of-type(107) {
+  -webkit-transition-delay: 0s, 1.1066666667s;
+          transition-delay: 0s, 1.1066666667s;
+}
+body #map svg path:nth-of-type(108) {
+  -webkit-transition-delay: 0s, 1.11s;
+          transition-delay: 0s, 1.11s;
+}
+body #map svg path:nth-of-type(109) {
+  -webkit-transition-delay: 0s, 1.1133333333s;
+          transition-delay: 0s, 1.1133333333s;
+}
+body #map svg path:nth-of-type(110) {
+  -webkit-transition-delay: 0s, 1.1166666667s;
+          transition-delay: 0s, 1.1166666667s;
+}
+body #map svg path:nth-of-type(111) {
+  -webkit-transition-delay: 0s, 1.12s;
+          transition-delay: 0s, 1.12s;
+}
+body #map svg path:nth-of-type(112) {
+  -webkit-transition-delay: 0s, 1.1233333333s;
+          transition-delay: 0s, 1.1233333333s;
+}
+body #map svg path:nth-of-type(113) {
+  -webkit-transition-delay: 0s, 1.1266666667s;
+          transition-delay: 0s, 1.1266666667s;
+}
+body #map svg path:nth-of-type(114) {
+  -webkit-transition-delay: 0s, 1.13s;
+          transition-delay: 0s, 1.13s;
+}
+body #map svg path:nth-of-type(115) {
+  -webkit-transition-delay: 0s, 1.1333333333s;
+          transition-delay: 0s, 1.1333333333s;
+}
+body #map svg path:nth-of-type(116) {
+  -webkit-transition-delay: 0s, 1.1366666667s;
+          transition-delay: 0s, 1.1366666667s;
+}
+body #map svg path:nth-of-type(117) {
+  -webkit-transition-delay: 0s, 1.14s;
+          transition-delay: 0s, 1.14s;
+}
+body #map svg path:nth-of-type(118) {
+  -webkit-transition-delay: 0s, 1.1433333333s;
+          transition-delay: 0s, 1.1433333333s;
+}
+body #map svg path:nth-of-type(119) {
+  -webkit-transition-delay: 0s, 1.1466666667s;
+          transition-delay: 0s, 1.1466666667s;
+}
+body #map svg path:nth-of-type(120) {
+  -webkit-transition-delay: 0s, 1.15s;
+          transition-delay: 0s, 1.15s;
+}
+body #map svg path:nth-of-type(121) {
+  -webkit-transition-delay: 0s, 1.1533333333s;
+          transition-delay: 0s, 1.1533333333s;
+}
+body #map svg path:nth-of-type(122) {
+  -webkit-transition-delay: 0s, 1.1566666667s;
+          transition-delay: 0s, 1.1566666667s;
+}
+body #map svg path:nth-of-type(123) {
+  -webkit-transition-delay: 0s, 1.16s;
+          transition-delay: 0s, 1.16s;
+}
+body #map svg path:nth-of-type(124) {
+  -webkit-transition-delay: 0s, 1.1633333333s;
+          transition-delay: 0s, 1.1633333333s;
+}
+body #map svg path:nth-of-type(125) {
+  -webkit-transition-delay: 0s, 1.1666666667s;
+          transition-delay: 0s, 1.1666666667s;
+}
+body #map svg path:nth-of-type(126) {
+  -webkit-transition-delay: 0s, 1.17s;
+          transition-delay: 0s, 1.17s;
+}
+body #map svg path:nth-of-type(127) {
+  -webkit-transition-delay: 0s, 1.1733333333s;
+          transition-delay: 0s, 1.1733333333s;
+}
+body #map svg path:nth-of-type(128) {
+  -webkit-transition-delay: 0s, 1.1766666667s;
+          transition-delay: 0s, 1.1766666667s;
+}
+body #map svg path:nth-of-type(129) {
+  -webkit-transition-delay: 0s, 1.18s;
+          transition-delay: 0s, 1.18s;
+}
+body #map svg path:nth-of-type(130) {
+  -webkit-transition-delay: 0s, 1.1833333333s;
+          transition-delay: 0s, 1.1833333333s;
+}
+body #map svg path:nth-of-type(131) {
+  -webkit-transition-delay: 0s, 1.1866666667s;
+          transition-delay: 0s, 1.1866666667s;
+}
+body #map svg path:nth-of-type(132) {
+  -webkit-transition-delay: 0s, 1.19s;
+          transition-delay: 0s, 1.19s;
+}
+body #map svg path:nth-of-type(133) {
+  -webkit-transition-delay: 0s, 1.1933333333s;
+          transition-delay: 0s, 1.1933333333s;
+}
+body #map svg path:nth-of-type(134) {
+  -webkit-transition-delay: 0s, 1.1966666667s;
+          transition-delay: 0s, 1.1966666667s;
+}
+body #map svg path:nth-of-type(135) {
+  -webkit-transition-delay: 0s, 1.2s;
+          transition-delay: 0s, 1.2s;
+}
+body #map svg path:nth-of-type(136) {
+  -webkit-transition-delay: 0s, 1.2033333333s;
+          transition-delay: 0s, 1.2033333333s;
+}
+body #map svg path:nth-of-type(137) {
+  -webkit-transition-delay: 0s, 1.2066666667s;
+          transition-delay: 0s, 1.2066666667s;
+}
+body #map svg path:nth-of-type(138) {
+  -webkit-transition-delay: 0s, 1.21s;
+          transition-delay: 0s, 1.21s;
+}
+body #map svg path:nth-of-type(139) {
+  -webkit-transition-delay: 0s, 1.2133333333s;
+          transition-delay: 0s, 1.2133333333s;
+}
+body #map svg path:nth-of-type(140) {
+  -webkit-transition-delay: 0s, 1.2166666667s;
+          transition-delay: 0s, 1.2166666667s;
+}
+body #map svg path:nth-of-type(141) {
+  -webkit-transition-delay: 0s, 1.22s;
+          transition-delay: 0s, 1.22s;
+}
+body #map svg path:nth-of-type(142) {
+  -webkit-transition-delay: 0s, 1.2233333333s;
+          transition-delay: 0s, 1.2233333333s;
+}
+body #map svg path:nth-of-type(143) {
+  -webkit-transition-delay: 0s, 1.2266666667s;
+          transition-delay: 0s, 1.2266666667s;
+}
+body #map svg path:nth-of-type(144) {
+  -webkit-transition-delay: 0s, 1.23s;
+          transition-delay: 0s, 1.23s;
+}
+body #map svg path:nth-of-type(145) {
+  -webkit-transition-delay: 0s, 1.2333333333s;
+          transition-delay: 0s, 1.2333333333s;
+}
+body #map svg path:nth-of-type(146) {
+  -webkit-transition-delay: 0s, 1.2366666667s;
+          transition-delay: 0s, 1.2366666667s;
+}
+body #map svg path:nth-of-type(147) {
+  -webkit-transition-delay: 0s, 1.24s;
+          transition-delay: 0s, 1.24s;
+}
+body #map svg path:nth-of-type(148) {
+  -webkit-transition-delay: 0s, 1.2433333333s;
+          transition-delay: 0s, 1.2433333333s;
+}
+body #map svg path:nth-of-type(149) {
+  -webkit-transition-delay: 0s, 1.2466666667s;
+          transition-delay: 0s, 1.2466666667s;
+}
+body #map svg path:nth-of-type(150) {
+  -webkit-transition-delay: 0s, 1.25s;
+          transition-delay: 0s, 1.25s;
+}
+body #map svg path:nth-of-type(151) {
+  -webkit-transition-delay: 0s, 1.2533333333s;
+          transition-delay: 0s, 1.2533333333s;
+}
+body #map svg path:nth-of-type(152) {
+  -webkit-transition-delay: 0s, 1.2566666667s;
+          transition-delay: 0s, 1.2566666667s;
+}
+body #map svg path:nth-of-type(153) {
+  -webkit-transition-delay: 0s, 1.26s;
+          transition-delay: 0s, 1.26s;
+}
+body #map svg path:nth-of-type(154) {
+  -webkit-transition-delay: 0s, 1.2633333333s;
+          transition-delay: 0s, 1.2633333333s;
+}
+body #map svg path:nth-of-type(155) {
+  -webkit-transition-delay: 0s, 1.2666666667s;
+          transition-delay: 0s, 1.2666666667s;
+}
+body #map svg path:nth-of-type(156) {
+  -webkit-transition-delay: 0s, 1.27s;
+          transition-delay: 0s, 1.27s;
+}
+body #map svg path:nth-of-type(157) {
+  -webkit-transition-delay: 0s, 1.2733333333s;
+          transition-delay: 0s, 1.2733333333s;
+}
+body #map svg path:nth-of-type(158) {
+  -webkit-transition-delay: 0s, 1.2766666667s;
+          transition-delay: 0s, 1.2766666667s;
+}
+body #map svg path:nth-of-type(159) {
+  -webkit-transition-delay: 0s, 1.28s;
+          transition-delay: 0s, 1.28s;
+}
+body #map svg path:nth-of-type(160) {
+  -webkit-transition-delay: 0s, 1.2833333333s;
+          transition-delay: 0s, 1.2833333333s;
+}
+body #map svg path:nth-of-type(161) {
+  -webkit-transition-delay: 0s, 1.2866666667s;
+          transition-delay: 0s, 1.2866666667s;
+}
+body #map svg path:nth-of-type(162) {
+  -webkit-transition-delay: 0s, 1.29s;
+          transition-delay: 0s, 1.29s;
+}
+body #map svg path:nth-of-type(163) {
+  -webkit-transition-delay: 0s, 1.2933333333s;
+          transition-delay: 0s, 1.2933333333s;
+}
+body #map svg path:nth-of-type(164) {
+  -webkit-transition-delay: 0s, 1.2966666667s;
+          transition-delay: 0s, 1.2966666667s;
+}
+body #map svg path:nth-of-type(165) {
+  -webkit-transition-delay: 0s, 1.3s;
+          transition-delay: 0s, 1.3s;
+}
+body #map svg path:nth-of-type(166) {
+  -webkit-transition-delay: 0s, 1.3033333333s;
+          transition-delay: 0s, 1.3033333333s;
+}
+body #map svg path:nth-of-type(167) {
+  -webkit-transition-delay: 0s, 1.3066666667s;
+          transition-delay: 0s, 1.3066666667s;
+}
+body #map svg path:nth-of-type(168) {
+  -webkit-transition-delay: 0s, 1.31s;
+          transition-delay: 0s, 1.31s;
+}
+body #map svg path:nth-of-type(169) {
+  -webkit-transition-delay: 0s, 1.3133333333s;
+          transition-delay: 0s, 1.3133333333s;
+}
+body #map svg path:nth-of-type(170) {
+  -webkit-transition-delay: 0s, 1.3166666667s;
+          transition-delay: 0s, 1.3166666667s;
+}
+body #map svg path:nth-of-type(171) {
+  -webkit-transition-delay: 0s, 1.32s;
+          transition-delay: 0s, 1.32s;
+}
+body #map svg path:nth-of-type(172) {
+  -webkit-transition-delay: 0s, 1.3233333333s;
+          transition-delay: 0s, 1.3233333333s;
+}
+body #map svg path:nth-of-type(173) {
+  -webkit-transition-delay: 0s, 1.3266666667s;
+          transition-delay: 0s, 1.3266666667s;
+}
+body #map svg path:nth-of-type(174) {
+  -webkit-transition-delay: 0s, 1.33s;
+          transition-delay: 0s, 1.33s;
+}
+body #map svg path:nth-of-type(175) {
+  -webkit-transition-delay: 0s, 1.3333333333s;
+          transition-delay: 0s, 1.3333333333s;
+}
+body #map svg path:nth-of-type(176) {
+  -webkit-transition-delay: 0s, 1.3366666667s;
+          transition-delay: 0s, 1.3366666667s;
+}
+body #map svg path:nth-of-type(177) {
+  -webkit-transition-delay: 0s, 1.34s;
+          transition-delay: 0s, 1.34s;
+}
+body #map svg path:nth-of-type(178) {
+  -webkit-transition-delay: 0s, 1.3433333333s;
+          transition-delay: 0s, 1.3433333333s;
+}
+body #map svg path:nth-of-type(179) {
+  -webkit-transition-delay: 0s, 1.3466666667s;
+          transition-delay: 0s, 1.3466666667s;
+}
+body #map svg path:nth-of-type(180) {
+  -webkit-transition-delay: 0s, 1.35s;
+          transition-delay: 0s, 1.35s;
+}
+body #map svg path:nth-of-type(181) {
+  -webkit-transition-delay: 0s, 1.3533333333s;
+          transition-delay: 0s, 1.3533333333s;
+}
+body #map svg path:nth-of-type(182) {
+  -webkit-transition-delay: 0s, 1.3566666667s;
+          transition-delay: 0s, 1.3566666667s;
+}
+body #map svg path:nth-of-type(183) {
+  -webkit-transition-delay: 0s, 1.36s;
+          transition-delay: 0s, 1.36s;
+}
+body #map svg path:nth-of-type(184) {
+  -webkit-transition-delay: 0s, 1.3633333333s;
+          transition-delay: 0s, 1.3633333333s;
+}
+body #map svg path:nth-of-type(185) {
+  -webkit-transition-delay: 0s, 1.3666666667s;
+          transition-delay: 0s, 1.3666666667s;
+}
+body #map svg path:nth-of-type(186) {
+  -webkit-transition-delay: 0s, 1.37s;
+          transition-delay: 0s, 1.37s;
+}
+body #map svg path:nth-of-type(187) {
+  -webkit-transition-delay: 0s, 1.3733333333s;
+          transition-delay: 0s, 1.3733333333s;
+}
+body #map svg path:nth-of-type(188) {
+  -webkit-transition-delay: 0s, 1.3766666667s;
+          transition-delay: 0s, 1.3766666667s;
+}
+body #map svg path:nth-of-type(189) {
+  -webkit-transition-delay: 0s, 1.38s;
+          transition-delay: 0s, 1.38s;
+}
+body #map svg path:nth-of-type(190) {
+  -webkit-transition-delay: 0s, 1.3833333333s;
+          transition-delay: 0s, 1.3833333333s;
+}
+body #map svg path:nth-of-type(191) {
+  -webkit-transition-delay: 0s, 1.3866666667s;
+          transition-delay: 0s, 1.3866666667s;
+}
+body #map svg path:nth-of-type(192) {
+  -webkit-transition-delay: 0s, 1.39s;
+          transition-delay: 0s, 1.39s;
+}
+body #map svg path:nth-of-type(193) {
+  -webkit-transition-delay: 0s, 1.3933333333s;
+          transition-delay: 0s, 1.3933333333s;
+}
+body #map svg path:nth-of-type(194) {
+  -webkit-transition-delay: 0s, 1.3966666667s;
+          transition-delay: 0s, 1.3966666667s;
+}
+body #map svg path:nth-of-type(195) {
+  -webkit-transition-delay: 0s, 1.4s;
+          transition-delay: 0s, 1.4s;
+}
+body #map svg path:nth-of-type(196) {
+  -webkit-transition-delay: 0s, 1.4033333333s;
+          transition-delay: 0s, 1.4033333333s;
+}
+body #map svg path:nth-of-type(197) {
+  -webkit-transition-delay: 0s, 1.4066666667s;
+          transition-delay: 0s, 1.4066666667s;
+}
+body #map svg path:nth-of-type(198) {
+  -webkit-transition-delay: 0s, 1.41s;
+          transition-delay: 0s, 1.41s;
+}
+body #map svg path:nth-of-type(199) {
+  -webkit-transition-delay: 0s, 1.4133333333s;
+          transition-delay: 0s, 1.4133333333s;
+}
+body #map svg path:nth-of-type(200) {
+  -webkit-transition-delay: 0s, 1.4166666667s;
+          transition-delay: 0s, 1.4166666667s;
+}
+body #map svg path:nth-of-type(201) {
+  -webkit-transition-delay: 0s, 1.42s;
+          transition-delay: 0s, 1.42s;
+}
+body #map svg path:nth-of-type(202) {
+  -webkit-transition-delay: 0s, 1.4233333333s;
+          transition-delay: 0s, 1.4233333333s;
+}
+body #map svg path:nth-of-type(203) {
+  -webkit-transition-delay: 0s, 1.4266666667s;
+          transition-delay: 0s, 1.4266666667s;
+}
+body #map svg path:nth-of-type(204) {
+  -webkit-transition-delay: 0s, 1.43s;
+          transition-delay: 0s, 1.43s;
+}
+body #map svg path:nth-of-type(205) {
+  -webkit-transition-delay: 0s, 1.4333333333s;
+          transition-delay: 0s, 1.4333333333s;
+}
+body #map svg path:nth-of-type(206) {
+  -webkit-transition-delay: 0s, 1.4366666667s;
+          transition-delay: 0s, 1.4366666667s;
+}
+body #map svg path:nth-of-type(207) {
+  -webkit-transition-delay: 0s, 1.44s;
+          transition-delay: 0s, 1.44s;
+}
+body #map svg path:nth-of-type(208) {
+  -webkit-transition-delay: 0s, 1.4433333333s;
+          transition-delay: 0s, 1.4433333333s;
+}
+body #map svg path:nth-of-type(209) {
+  -webkit-transition-delay: 0s, 1.4466666667s;
+          transition-delay: 0s, 1.4466666667s;
+}
+body #map svg path:nth-of-type(210) {
+  -webkit-transition-delay: 0s, 1.45s;
+          transition-delay: 0s, 1.45s;
+}
+body #map svg path:nth-of-type(211) {
+  -webkit-transition-delay: 0s, 1.4533333333s;
+          transition-delay: 0s, 1.4533333333s;
+}
+body #map svg path:nth-of-type(212) {
+  -webkit-transition-delay: 0s, 1.4566666667s;
+          transition-delay: 0s, 1.4566666667s;
+}
+body #map svg path:nth-of-type(213) {
+  -webkit-transition-delay: 0s, 1.46s;
+          transition-delay: 0s, 1.46s;
+}
+body #map svg path:nth-of-type(214) {
+  -webkit-transition-delay: 0s, 1.4633333333s;
+          transition-delay: 0s, 1.4633333333s;
+}
+body #map svg path:nth-of-type(215) {
+  -webkit-transition-delay: 0s, 1.4666666667s;
+          transition-delay: 0s, 1.4666666667s;
+}
+body #map svg path:nth-of-type(216) {
+  -webkit-transition-delay: 0s, 1.47s;
+          transition-delay: 0s, 1.47s;
+}
+body #map svg path:nth-of-type(217) {
+  -webkit-transition-delay: 0s, 1.4733333333s;
+          transition-delay: 0s, 1.4733333333s;
+}
+body #map svg path:nth-of-type(218) {
+  -webkit-transition-delay: 0s, 1.4766666667s;
+          transition-delay: 0s, 1.4766666667s;
+}
+body #map svg path:nth-of-type(219) {
+  -webkit-transition-delay: 0s, 1.48s;
+          transition-delay: 0s, 1.48s;
+}
+body #map svg path:nth-of-type(220) {
+  -webkit-transition-delay: 0s, 1.4833333333s;
+          transition-delay: 0s, 1.4833333333s;
+}
+body #map svg path:nth-of-type(221) {
+  -webkit-transition-delay: 0s, 1.4866666667s;
+          transition-delay: 0s, 1.4866666667s;
+}
+body #map svg path:nth-of-type(222) {
+  -webkit-transition-delay: 0s, 1.49s;
+          transition-delay: 0s, 1.49s;
+}
+body #map svg path:nth-of-type(223) {
+  -webkit-transition-delay: 0s, 1.4933333333s;
+          transition-delay: 0s, 1.4933333333s;
+}
+body #map svg path:nth-of-type(224) {
+  -webkit-transition-delay: 0s, 1.4966666667s;
+          transition-delay: 0s, 1.4966666667s;
+}
+body #map svg path:nth-of-type(225) {
+  -webkit-transition-delay: 0s, 1.5s;
+          transition-delay: 0s, 1.5s;
+}
+body #map svg path:nth-of-type(226) {
+  -webkit-transition-delay: 0s, 1.5033333333s;
+          transition-delay: 0s, 1.5033333333s;
+}
+body #map svg path:nth-of-type(227) {
+  -webkit-transition-delay: 0s, 1.5066666667s;
+          transition-delay: 0s, 1.5066666667s;
+}
+body #map svg path:nth-of-type(228) {
+  -webkit-transition-delay: 0s, 1.51s;
+          transition-delay: 0s, 1.51s;
+}
+body #map svg path:nth-of-type(229) {
+  -webkit-transition-delay: 0s, 1.5133333333s;
+          transition-delay: 0s, 1.5133333333s;
+}
+body #map svg path:nth-of-type(230) {
+  -webkit-transition-delay: 0s, 1.5166666667s;
+          transition-delay: 0s, 1.5166666667s;
+}
+body #map svg path:nth-of-type(231) {
+  -webkit-transition-delay: 0s, 1.52s;
+          transition-delay: 0s, 1.52s;
+}
+body #map svg path:nth-of-type(232) {
+  -webkit-transition-delay: 0s, 1.5233333333s;
+          transition-delay: 0s, 1.5233333333s;
+}
+body #map svg path:nth-of-type(233) {
+  -webkit-transition-delay: 0s, 1.5266666667s;
+          transition-delay: 0s, 1.5266666667s;
+}
+body #map svg path:nth-of-type(234) {
+  -webkit-transition-delay: 0s, 1.53s;
+          transition-delay: 0s, 1.53s;
+}
+body #map svg path:nth-of-type(235) {
+  -webkit-transition-delay: 0s, 1.5333333333s;
+          transition-delay: 0s, 1.5333333333s;
+}
+body #map svg path:nth-of-type(236) {
+  -webkit-transition-delay: 0s, 1.5366666667s;
+          transition-delay: 0s, 1.5366666667s;
+}
+body #map svg path:nth-of-type(237) {
+  -webkit-transition-delay: 0s, 1.54s;
+          transition-delay: 0s, 1.54s;
+}
+body #map svg path:nth-of-type(238) {
+  -webkit-transition-delay: 0s, 1.5433333333s;
+          transition-delay: 0s, 1.5433333333s;
+}
+body #map svg path:nth-of-type(239) {
+  -webkit-transition-delay: 0s, 1.5466666667s;
+          transition-delay: 0s, 1.5466666667s;
+}
+body #map svg path:nth-of-type(240) {
+  -webkit-transition-delay: 0s, 1.55s;
+          transition-delay: 0s, 1.55s;
+}
+body #map svg path:nth-of-type(241) {
+  -webkit-transition-delay: 0s, 1.5533333333s;
+          transition-delay: 0s, 1.5533333333s;
+}
+body #map svg path:nth-of-type(242) {
+  -webkit-transition-delay: 0s, 1.5566666667s;
+          transition-delay: 0s, 1.5566666667s;
+}
+body #map svg path:nth-of-type(243) {
+  -webkit-transition-delay: 0s, 1.56s;
+          transition-delay: 0s, 1.56s;
+}
+body #map svg path:nth-of-type(244) {
+  -webkit-transition-delay: 0s, 1.5633333333s;
+          transition-delay: 0s, 1.5633333333s;
+}
+body #map svg path:nth-of-type(245) {
+  -webkit-transition-delay: 0s, 1.5666666667s;
+          transition-delay: 0s, 1.5666666667s;
+}
+body #map svg path:nth-of-type(246) {
+  -webkit-transition-delay: 0s, 1.57s;
+          transition-delay: 0s, 1.57s;
+}
+body #map svg path:nth-of-type(247) {
+  -webkit-transition-delay: 0s, 1.5733333333s;
+          transition-delay: 0s, 1.5733333333s;
+}
+body #map svg path:nth-of-type(248) {
+  -webkit-transition-delay: 0s, 1.5766666667s;
+          transition-delay: 0s, 1.5766666667s;
+}
+body #map svg path:nth-of-type(249) {
+  -webkit-transition-delay: 0s, 1.58s;
+          transition-delay: 0s, 1.58s;
+}
+body #map svg path:nth-of-type(250) {
+  -webkit-transition-delay: 0s, 1.5833333333s;
+          transition-delay: 0s, 1.5833333333s;
+}
+body #map svg path.active {
+  z-index: 5;
+  fill: var(--orange);
+}
+body #tooltip {
+  width: 250px;
+  height: 150px;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  position: absolute;
+  background: var(--white);
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 1;
+  pointer-events: none;
+  color: var(--navyblue);
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+  border-radius: 3px;
+  box-shadow: 0 0 0 3px var(--navyblue);
+}
+body #tooltip:after, body #tooltip:before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #fff transparent transparent transparent;
+}
+body #tooltip:before {
+  border-width: 13px 13px 0 13px;
+  border-color: var(--navyblue) transparent transparent transparent;
+  bottom: -13px;
+}
+body #tooltip.active {
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+body #tooltip .data {
+  display: none;
+  pointer-events: none;
+  padding: 2.25rem 0 0;
+}
+body #tooltip .data h3 {
+  color: var(--red);
+  margin: 0px;
+  width: 100%;
+  font-family: "Oswald";
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  background: var(--darkblue);
+  border-radius: 3px 3px 0 0;
+}
+body #tooltip .data h4 {
+  color: var(--navyblue);
+  margin: 0px;
+  width: 100%;
+  font-family: "Oswald";
+  font-weight: 300;
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+body #tooltip .data h4 span {
+  font-weight: 700;
+  color: var(--orange);
+}
+body #tooltip .data h4:nth-of-type(2) span {
+  color: var(--red);
+}
+body #tooltip .data h4:last-of-type span {
+  color: var(--blue);
+}
+body #tooltip .data.active {
+  display: block;
+}
